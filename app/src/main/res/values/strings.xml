@@ -1,3 +1,4 @@
 <resources>
-    <string name="app_name">MusicalStructure</string>
+    <string name="app_name">Musicali: Mude seu humor</string>
+    <string name="section_format">Hello World from section: %1$d</string>
 </resources>
