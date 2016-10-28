@@ -1,4 +1,86 @@
 <resources>
-    <string name="app_name">Musicali: Mude seu humor</string>
+    <string name="app_name">Musk</string>
     <string name="section_format">Hello World from section: %1$d</string>
+
+    <string-array name="tabs">
+        <item>Como quero me sentir?</item>
+        <item>O que estou fazendo?</item>
+        <item>Minhas Favoritas</item>
+    </string-array>
+
+    <string-array name="states">
+        <item>Alegre/Feliz</item>
+        <item>Motivado</item>
+        <item>Apaixonado</item>
+        <item>Sofrendo</item>
+        <item>Aliviado</item>
+        <item>Tranquilo/Relaxado</item>
+        <item>Eufórico</item>
+        <item>Estado de catarse</item>
+        <item>Estado de fluxo</item>
+        <item>Vitorioso</item>
+    </string-array>
+
+    <string-array name="doing">
+        <item>Programando</item>
+        <item>Lendo</item>
+        <item>Estudando</item>
+        <item>Escrevendo</item>
+        <item>Calculando</item>
+        <item>Trabalhando</item>
+    </string-array>
+
+    <string name="lorem_ipsum">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam
+        efficitur ipsum in placerat molestie. Fusce quis mauris a enim sollicitudin ultrices non
+        eget velit. Aliquam eu pulvinar enim. Praesent libero nisl, ultricies vel maximus eu,
+        maximus et nisi. Phasellus pharetra nec ligula vitae mollis. Quisque porttitor ornare magna,
+        quis dignissim libero aliquam id. Donec sollicitudin ultrices ante, a semper erat tristique
+        in. Vivamus sodales in ligula at sodales. Pellentesque habitant morbi tristique senectus et
+        netus et malesuada fames ac turpis egestas. Nulla tempus bibendum nibh, ac tincidunt quam
+        convallis non. Proin dolor nunc, egestas et tortor consequat, dignissim lacinia odio. Ut ut
+        aliquet erat. Ut non scelerisque elit. Morbi dolor neque, iaculis eu justo rutrum, aliquet
+        dictum mauris. Phasellus quis massa ut ligula feugiat congue a et dolor. Etiam a dui a
+        sapien ornare accumsan ac ut lorem. Suspendisse vehicula lorem dapibus nibh rhoncus
+        ultricies. Proin sem nulla, elementum quis pharetra quis, commodo vitae nisi. Donec urna
+        orci, posuere et iaculis sit amet, fringilla quis sapien. Pellentesque nec posuere felis.
+        Praesent malesuada tellus nisi, non dictum justo interdum eget. Quisque mollis euismod
+        libero, non aliquam lorem interdum vitae. Aliquam vehicula efficitur purus eget rutrum. Sed
+        pulvinar fermentum risus ac viverra. Cras laoreet ligula quam, ac lacinia nisl elementum in.
+        Aenean velit arcu, euismod a venenatis non, pulvinar pulvinar massa. Lorem ipsum dolor sit
+        amet, consectetur adipiscing elit. Etiam efficitur ipsum in placerat molestie. Fusce quis
+        mauris a enim sollicitudin ultrices non eget velit. Aliquam eu pulvinar enim. Praesent
+        libero nisl, ultricies vel maximus eu, maximus et nisi. Phasellus pharetra nec ligula vitae
+        mollis. Quisque porttitor ornare magna, quis dignissim libero aliquam id. Donec sollicitudin
+        ultrices ante, a semper erat tristique in. Vivamus sodales in ligula at sodales.
+        Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis
+        egestas. Nulla tempus bibendum nibh, ac tincidunt quam convallis non. Proin dolor nunc,
+        egestas et tortor consequat, dignissim lacinia odio. Ut ut aliquet erat. Ut non scelerisque
+        elit. Morbi dolor neque, iaculis eu justo rutrum, aliquet dictum mauris. Phasellus quis
+        massa ut ligula feugiat congue a et dolor. Etiam a dui a sapien ornare accumsan ac ut lorem.
+        Suspendisse vehicula lorem dapibus nibh rhoncus ultricies. Proin sem nulla, elementum quis
+        pharetra quis, commodo vitae nisi. Donec urna orci, posuere et iaculis sit amet, fringilla
+        quis sapien. Pellentesque nec posuere felis. Praesent malesuada tellus nisi, non dictum
+        justo interdum eget. Quisque mollis euismod libero, non aliquam lorem interdum vitae.
+        Aliquam vehicula efficitur purus eget rutrum. Sed pulvinar fermentum risus ac viverra. Cras
+        laoreet ligula quam, ac lacinia nisl elementum in. Aenean velit arcu, euismod a venenatis
+        non, pulvinar pulvinar massa.
+    </string>
+    <string name="empty_favorites">Ainda não marquei nenhum favorito :(</string>
+    <string name="title_item_list">Items</string>
+    <string name="title_item_detail">Item Detail</string>
+
+    <!---->
+    <string name="favorite">Favorite</string>
+    <string name="error_no_metadata">Unable to retrieve metadata.</string>
+    <string name="browse_genres">Genres</string>
+    <string name="browse_genre_subtitle">Songs by genre</string>
+    <string name="browse_musics_by_genre_subtitle">%1$s songs</string>
+    <string name="random_queue_title">Random music</string>
+    <string name="error_cannot_skip">Cannot skip</string>
+    <string name="error_loading_media">Error Loading Media</string>
+    <string name="play_item" translatable="false">Play item</string>
+    <string name="skip_previous">Skip to previous</string>
+    <string name="play_pause">play or pause</string>
+    <string name="skip_next">Skip to next</string>
+    <string name="no_search_results">No search results.</string>
 </resources>

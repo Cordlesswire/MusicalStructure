@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/controls"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:layout_gravity="bottom|center_horizontal|end"
+    ><!--Rendering problem: tools:showIn="@layout/activity_item_list"-->
+    <ImageButton
+        android:id="@+id/skip_previous"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:contentDescription="@string/skip_previous"
+        android:src="@android:drawable/ic_media_previous"
+        android:layout_gravity="bottom|left"
+        />
+    <ImageButton
+        android:id="@+id/play_pause"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:contentDescription="@string/play_pause"
+        android:src="@android:drawable/ic_media_play"
+        android:layout_gravity="bottom|center_horizontal"
+        />
+    <ImageButton
+        android:id="@+id/skip_next"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:contentDescription="@string/skip_next"
+        android:src="@android:drawable/ic_media_next"
+        android:layout_gravity="bottom|right"
+        />
+</LinearLayout>

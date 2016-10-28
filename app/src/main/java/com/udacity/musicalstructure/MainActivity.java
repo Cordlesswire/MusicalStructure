@@ -1,25 +1,21 @@
 package com.udacity.musicalstructure;
 
 import android.os.Bundle;
+import android.support.design.widget.AppBarLayout;
+import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
+import android.widget.ImageView;
 
-import java.util.Arrays;
-import java.util.List;
+import com.bumptech.glide.Glide;
+import com.udacity.musicalstructure.tab.TabSectionFragment;
+
 
 public class MainActivity extends AppCompatActivity {
-
-    private SectionsPagerAdapter mSectionsPagerAdapter;
-    private ViewPager mViewPager;
 
 
     @Override
@@ -27,53 +23,66 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         //
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        //
-        mViewPager = (ViewPager) findViewById(R.id.container);
-        mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
-        mViewPager.setAdapter(mSectionsPagerAdapter);
+        SectionsPagerAdapter sectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
+        ViewPager viewPager = (ViewPager) findViewById(R.id.container);
+        viewPager.setAdapter(sectionsPagerAdapter);
         //
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
-        tabLayout.setupWithViewPager(mViewPager);
+        tabLayout.setupWithViewPager(viewPager);
+        //
+        viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
+        tabLayout.setOnTabSelectedListener(new TabLayout.ViewPagerOnTabSelectedListener(viewPager));
+        //
+        initCollapsingTabs();
+        //
+        showHeaderBackgroud();
     }
 
 
-    public static class PlaceholderFragment extends Fragment
-    {
-        private static final String ARG_SECTION_NUMBER = "section_number";
-
-        public PlaceholderFragment()
+    private void initCollapsingTabs() {
+        final CollapsingToolbarLayout collapsingToolbar = (CollapsingToolbarLayout) findViewById(R.id.collapsing_tabslayout);
+        collapsingToolbar.setTitle(" ");
+        AppBarLayout appBarLayout = (AppBarLayout) findViewById(R.id.appbar);
+        appBarLayout.setExpanded(true);
+        // hiding & showing the title when toolbar expanded & collapsed
+        appBarLayout.addOnOffsetChangedListener(new AppBarLayout.OnOffsetChangedListener()
         {
-        }
+            boolean isShow = false;
+            int scrollRange = -1;
 
-        public static PlaceholderFragment newInstance(int sectionNumber)
-        {
-            PlaceholderFragment fragment = new PlaceholderFragment();
-            Bundle args = new Bundle();
-            args.putInt(ARG_SECTION_NUMBER, sectionNumber);
-            fragment.setArguments(args);
-            return fragment;
-        }
+            @Override
+            public void onOffsetChanged(AppBarLayout appBarLayout, int verticalOffset)
+            {
+                if (scrollRange == -1)
+                {
+                    scrollRange = appBarLayout.getTotalScrollRange();
+                }
+                if (scrollRange + verticalOffset == 0)
+                {
+                    collapsingToolbar.setTitle(getString(R.string.app_name));
+                    isShow = true;
+                } else if (isShow)
+                {
+                    collapsingToolbar.setTitle(" ");
+                    isShow = false;
+                }
+            }
+        });
+    }
 
-        @Override
-        public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
-        {
-            View rootView = inflater.inflate(R.layout.fragment_main, container, false);
-            TextView textView = (TextView) rootView.findViewById(R.id.section_label);
-            textView.setText(getString(R.string.section_format, getArguments().getInt(ARG_SECTION_NUMBER)));
-            return rootView;
+
+    public void showHeaderBackgroud() {
+        try {
+            Glide.with(this).load(R.drawable.music_header).into((ImageView) findViewById(R.id.image_view));
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
 
-    public class SectionsPagerAdapter extends FragmentPagerAdapter
+    public class SectionsPagerAdapter extends FragmentPagerAdapter // ViewPagerAdapter
     {
-        List<String> tabsName = Arrays.asList(
-                "Como quero me sentir?",
-                "O que estou fazendo?",
-                "Minhas Favoritas"
-        );
+        String[] tabsName = getResources().getStringArray(R.array.tabs);
 
         public SectionsPagerAdapter(FragmentManager fm)
         {
@@ -83,13 +92,13 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public Fragment getItem(int position)
         {
-            return PlaceholderFragment.newInstance(position + 1);
+            return TabSectionFragment.newInstance(position);
         }
 
         @Override
         public int getCount()
         {
-            return tabsName.size();
+            return tabsName.length;
         }
 
         @Override
@@ -98,11 +107,11 @@ public class MainActivity extends AppCompatActivity {
             switch (position)
             {
                 case 0:
-                    return tabsName.get(0);
+                    return tabsName[0];
                 case 1:
-                    return tabsName.get(1);
+                    return tabsName[1];
                 case 2:
-                    return tabsName.get(2);
+                    return tabsName[2];
             }
             return null;
         }
