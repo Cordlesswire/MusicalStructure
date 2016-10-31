@@ -1,4 +1,4 @@
-package com.udacity.musicalstructure.useful;
+package com.udacity.musicalstructure.util;
 
 import android.content.res.Resources;
 import android.util.TypedValue;

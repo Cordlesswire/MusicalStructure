@@ -1,12 +1,13 @@
 **ESPECIFICAÇÕES DO PROJETO**
+
 Musical Structure
 
-====================================================================================================
+
 **APP DESIGN**
-[X] Suitability: A estrutura do app foi desenvolvido para tocar músicas especiais produzidas para ajudar o ouvinte a atingir um estado emocional desejado, uma especie de terapia musical
+[X] _Suitability_: A estrutura do app foi desenvolvido para tocar músicas especiais produzidas para ajudar o ouvinte a atingir um estado emocional desejado, uma especie de terapia musical
 The app’s structure is suitable for a music player app. A similarly structured app which focuses on audiobooks, podcasts, or other audio media is also acceptable.
 
-[X] Clarity: Usei Toolbar em vez de TextView e isso é aceitável
+[X] _Clarity_: Usei Toolbar em vez de TextView e isso é aceitável
 Each activity is clearly labelled, using a TextView, such that the final purpose of such an activity is easy to understand. For instance, one screen might be labelled ‘song detail screen’ and another might be labelled ‘music library’
 
 [X] Plan for creation:

@@ -1,4 +1,4 @@
-package com.udacity.musicalstructure.useful;
+package com.udacity.musicalstructure.util;
 
 import android.graphics.Rect;
 import android.support.v7.widget.RecyclerView;

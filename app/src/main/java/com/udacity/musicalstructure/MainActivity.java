@@ -30,11 +30,7 @@ public class MainActivity extends AppCompatActivity {
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(viewPager);
         //
-        viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
-        tabLayout.setOnTabSelectedListener(new TabLayout.ViewPagerOnTabSelectedListener(viewPager));
-        //
         initCollapsingTabs();
-        //
         showHeaderBackgroud();
     }
 
@@ -80,7 +76,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    public class SectionsPagerAdapter extends FragmentPagerAdapter // ViewPagerAdapter
+    public class SectionsPagerAdapter extends FragmentPagerAdapter
     {
         String[] tabsName = getResources().getStringArray(R.array.tabs);
 

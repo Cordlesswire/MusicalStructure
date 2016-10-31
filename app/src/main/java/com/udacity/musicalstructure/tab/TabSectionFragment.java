@@ -9,14 +9,13 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import com.udacity.musicalstructure.R;
 import com.udacity.musicalstructure.adapter.ThemeAdapter;
 import com.udacity.musicalstructure.dummy.DummyContent;
 import com.udacity.musicalstructure.model.Theme;
-import com.udacity.musicalstructure.useful.GridSpacingItemDecoration;
-import com.udacity.musicalstructure.useful.Transformation;
+import com.udacity.musicalstructure.util.GridSpacingItemDecoration;
+import com.udacity.musicalstructure.util.Transformation;
 
 import java.util.List;
 
@@ -57,35 +56,18 @@ public class TabSectionFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_main_tab, container, false);
         mRecyclerView = (RecyclerView) rootView.findViewById(R.id.recyclerView);
+        int sectionNumber;
         //
         Bundle arguments = this.getArguments();
         if (arguments != null) {
-            int sectionNumber = arguments.getInt(ARG_SECTION_NUMBER);
+            sectionNumber = arguments.getInt(ARG_SECTION_NUMBER);
             mThemes = DummyContent.initThemes(getContext(), sectionNumber);
-            //
-//            setupTabMyFavorites(sectionNumber, mRecyclerView);
         }
         // Obseve que deve instanciar o adaptar antes de incluí-lo no RecyclerView, senão error
         mThemeAdapter = new ThemeAdapter(getContext(), mThemes);
         setupRecyclerView(mRecyclerView);
-        //
         mThemeAdapter.notifyDataSetChanged();
         return rootView;
-    }
-
-
-    /**
-     * Não estou usando
-     * @param sectionNumber
-     * @param view
-     */
-    @Deprecated
-    private void setupTabMyFavorites(int sectionNumber, View view) {
-        if (sectionNumber == 2) {
-            TextView textView = new TextView(getContext());
-            textView.setText(getString(R.string.empty_favorites));
-            // ... Como faço para adicionar dinamicamente TextView no RecyclerView?
-        }
     }
 
 
