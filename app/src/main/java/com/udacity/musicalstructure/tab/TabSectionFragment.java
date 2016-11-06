@@ -65,18 +65,18 @@ public class TabSectionFragment extends Fragment {
         //
         mThemes = DummyContent.initThemes(getContext(), mArgument);
         mThemeAdapter = new ThemeAdapter(getContext(), mThemes);
-        setupRecyclerView(mRecyclerView);
+        setupRecyclerView(mRecyclerView, mThemeAdapter);
         mThemeAdapter.notifyDataSetChanged();
         return rootView;
     }
 
 
-    private void setupRecyclerView(RecyclerView recyclerView) {
+    private void setupRecyclerView(RecyclerView recyclerView, ThemeAdapter themeAdapter) {
         RecyclerView.LayoutManager mLayoutManager = new GridLayoutManager(getContext(), 2);
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.addItemDecoration(new GridSpacingItemDecoration(2, Transformation.dpToPx(10, getResources()), true));
         recyclerView.setItemAnimator(new DefaultItemAnimator());
-        recyclerView.setAdapter(mThemeAdapter);
+        recyclerView.setAdapter(themeAdapter);
     }
 
 
