@@ -27,6 +27,8 @@ import java.util.List;
 public class TabSectionFragment extends Fragment {
 
     private static final String ARG_SECTION_NUMBER = "section_number";
+    private int mArgument;
+
     protected List<Theme> mThemes;
     protected ThemeAdapter mThemeAdapter;
     public RecyclerView mRecyclerView;
@@ -35,6 +37,10 @@ public class TabSectionFragment extends Fragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        if (getArguments() != null)
+        {
+            mArgument = getArguments().getInt(ARG_SECTION_NUMBER);
+        }
     }
 
 
@@ -56,14 +62,8 @@ public class TabSectionFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_main_tab, container, false);
         mRecyclerView = (RecyclerView) rootView.findViewById(R.id.recyclerView);
-        int sectionNumber;
         //
-        Bundle arguments = this.getArguments();
-        if (arguments != null) {
-            sectionNumber = arguments.getInt(ARG_SECTION_NUMBER);
-            mThemes = DummyContent.initThemes(getContext(), sectionNumber);
-        }
-        // Obseve que deve instanciar o adaptar antes de incluí-lo no RecyclerView, senão error
+        mThemes = DummyContent.initThemes(getContext(), mArgument);
         mThemeAdapter = new ThemeAdapter(getContext(), mThemes);
         setupRecyclerView(mRecyclerView);
         mThemeAdapter.notifyDataSetChanged();
