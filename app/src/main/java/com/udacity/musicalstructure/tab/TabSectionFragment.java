@@ -29,9 +29,9 @@ public class TabSectionFragment extends Fragment {
     private static final String ARG_SECTION_NUMBER = "section_number";
     private int mArgument;
 
-    protected List<Theme> mThemes;
-    protected ThemeAdapter mThemeAdapter;
-    public RecyclerView mRecyclerView;
+    private List<Theme> mThemes;
+    private ThemeAdapter mThemeAdapter;
+    private RecyclerView mRecyclerView;
 
 
     @Override
@@ -72,7 +72,7 @@ public class TabSectionFragment extends Fragment {
 
 
     private void setupRecyclerView(RecyclerView recyclerView, ThemeAdapter themeAdapter) {
-        RecyclerView.LayoutManager mLayoutManager = new GridLayoutManager(getContext(), 2);
+        RecyclerView.LayoutManager mLayoutManager = new GridLayoutManager(getContext(), 3);
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.addItemDecoration(new GridSpacingItemDecoration(2, Transformation.dpToPx(10, getResources()), true));
         recyclerView.setItemAnimator(new DefaultItemAnimator());
