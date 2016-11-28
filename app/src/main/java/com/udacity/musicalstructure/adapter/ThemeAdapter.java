@@ -65,7 +65,7 @@ public class ThemeAdapter extends RecyclerView.Adapter<ThemeAdapter.MyViewHolder
         holder.title.setText(theme.getName());
         holder.count.setText(theme.getNumOfSongs() + " aúdios");
         //
-        Glide.with(mContext).load(theme.getImage()).into(holder.thumbnail);
+        Glide.with(mContext).load(theme.getImageId()).into(holder.thumbnail);
         //
         startActivityOnClick(holder);
     }
