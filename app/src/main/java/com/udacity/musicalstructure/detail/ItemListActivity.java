@@ -19,6 +19,8 @@ import com.udacity.musicalstructure.dummy.DummyContent;
 
 import java.util.List;
 
+import static com.udacity.musicalstructure.adapter.ThemeAdapter.EXTRA_THEME;
+
 
 public class ItemListActivity extends AppCompatActivity {
 
@@ -52,7 +54,7 @@ public class ItemListActivity extends AppCompatActivity {
         Bundle args = getIntent().getExtras();
         String name = "";
         if (args != null) {
-            name = args.getString("theme");
+            name = args.getString(EXTRA_THEME);
         }
         Log.i("TAG", name);
         getSupportActionBar().setTitle(name);
@@ -69,17 +71,16 @@ public class ItemListActivity extends AppCompatActivity {
 
 
     private void setupRecyclerView(@NonNull RecyclerView recyclerView) {
-        SimpleItemRecyclerViewAdapter adapter = new SimpleItemRecyclerViewAdapter(DummyContent.ITEMS);
+        ItemRecyclerViewAdapter adapter = new ItemRecyclerViewAdapter(DummyContent.ITEMS);
         recyclerView.setAdapter(adapter);
     }
 
 
-    public class SimpleItemRecyclerViewAdapter
-                            extends RecyclerView.Adapter<SimpleItemRecyclerViewAdapter.ViewHolder>
+    public class ItemRecyclerViewAdapter extends RecyclerView.Adapter<ItemRecyclerViewAdapter.ViewHolder>
     {
         private final List<DummyContent.DummyItem> mValues;
 
-        public SimpleItemRecyclerViewAdapter(List<DummyContent.DummyItem> items)
+        public ItemRecyclerViewAdapter(List<DummyContent.DummyItem> items)
         {
             mValues = items;
         }

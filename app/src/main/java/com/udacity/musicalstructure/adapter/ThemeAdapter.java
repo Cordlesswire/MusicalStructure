@@ -24,6 +24,7 @@ import java.util.List;
 
 public class ThemeAdapter extends RecyclerView.Adapter<ThemeAdapter.MyViewHolder> {
 
+    public static final String EXTRA_THEME = "theme";
     private Context mContext;
     private List<Theme> mThemes;
 
@@ -47,7 +48,7 @@ public class ThemeAdapter extends RecyclerView.Adapter<ThemeAdapter.MyViewHolder
             title     = (TextView) itemView.findViewById(R.id.title);
             count     = (TextView) itemView.findViewById(R.id.count);
             thumbnail = (ImageView) itemView.findViewById(R.id.thumbnail);
-            mView = itemView;
+            mView     = itemView;
         }
     }
 
@@ -63,7 +64,7 @@ public class ThemeAdapter extends RecyclerView.Adapter<ThemeAdapter.MyViewHolder
     public void onBindViewHolder(final MyViewHolder holder, int position) {
         Theme theme = mThemes.get(position);
         holder.title.setText(theme.getName());
-        holder.count.setText(theme.getNumOfSongs() + " aúdios");
+        holder.count.setText(String.format(mContext.getString(R.string.audios), theme.getNumOfSongs()));
         //
         Glide.with(mContext).load(theme.getImageId()).into(holder.thumbnail);
         //
@@ -78,7 +79,7 @@ public class ThemeAdapter extends RecyclerView.Adapter<ThemeAdapter.MyViewHolder
      */
     private void startActivityOnClick(MyViewHolder holder) {
         final Bundle params = new Bundle();
-        params.putString("theme", holder.title.getText().toString());
+        params.putString(EXTRA_THEME, holder.title.getText().toString());
         //
         holder.thumbnail.setOnClickListener(new View.OnClickListener()
         {
