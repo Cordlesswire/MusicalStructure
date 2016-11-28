@@ -8,13 +8,13 @@ public class Theme {
 
     private String mName;
     private int mNumOfSongs;
-    private int mImage;
+    private int mImageId;
 
 
-    public Theme(String name, int numOfSongs, int image) {
+    public Theme(String name, int numOfSongs, int imageId) {
         this.mName       = name;
         this.mNumOfSongs = numOfSongs;
-        this.mImage      = image;
+        this.mImageId    = imageId;
     }
 
 
@@ -22,26 +22,20 @@ public class Theme {
         return mName;
     }
 
+
     public void setName(String name) {
         mName = name;
     }
+
 
     public int getNumOfSongs() {
         return mNumOfSongs;
     }
 
-    public void setNumOfSongs(int numOfSongs) {
-        mNumOfSongs = numOfSongs;
-    }
 
-    public int getImage() {
-        return mImage;
+    public int getImageId() {
+        return mImageId;
     }
-
-    public void setImage(int image) {
-        mImage = image;
-    }
-
 
 
 }
